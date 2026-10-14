@@ -1,0 +1,37 @@
+{"id": "ref-1", "input": "How many days do I have to return an item for a full refund?", "expected": "30 days", "relevant": ["refunds"], "tags": ["refunds"], "paraphrases": ["What is the time limit for sending something back for all my money?", "Within how long can I return a purchase and get a full refund?"]}
+{"id": "ref-2", "input": "How long does a refund take to arrive?", "expected": "5 to 7 business days", "relevant": ["refunds"], "tags": ["refunds"], "paraphrases": ["When will the money from my return show up?"]}
+{"id": "ref-3", "input": "Can I return a sale item for cash?", "expected": "store credit", "relevant": ["refunds"], "tags": ["refunds"]}
+{"id": "ref-4", "input": "What is the return window for sale items?", "expected": "14 days", "relevant": ["refunds"], "tags": ["refunds"]}
+{"id": "ref-5", "input": "Can Final Sale items be returned?", "expected": "cannot be returned", "relevant": ["refunds"], "tags": ["refunds"]}
+{"id": "ref-6", "input": "How much is the return fee on an order under $50?", "expected": "$6.95", "relevant": ["refunds"], "tags": ["refunds"]}
+{"id": "shp-1", "input": "How much does standard shipping cost?", "expected": "$4.99", "relevant": ["shipping"], "tags": ["shipping"], "paraphrases": ["What do you charge for regular delivery?"]}
+{"id": "shp-2", "input": "How long does express shipping take?", "expected": "2 business days", "relevant": ["shipping"], "tags": ["shipping"]}
+{"id": "shp-3", "input": "What is the cutoff time for overnight shipping?", "expected": "2 PM Eastern", "relevant": ["shipping"], "tags": ["shipping"]}
+{"id": "shp-4", "input": "Do you ship outside the United States and Canada?", "expected": "United States and Canada only", "relevant": ["shipping"], "tags": ["shipping"]}
+{"id": "shp-5", "input": "What happens if my package is lost in transit?", "expected": "replace it for free", "relevant": ["shipping"], "tags": ["shipping"]}
+{"id": "shp-6", "input": "At what order total is standard shipping free?", "expected": "over $50", "relevant": ["shipping"], "tags": ["shipping"]}
+{"id": "war-1", "input": "How long is the standard product warranty?", "expected": "2 year", "relevant": ["warranty"], "tags": ["warranty"], "paraphrases": ["For how many years are Northwind products guaranteed against defects?"]}
+{"id": "war-2", "input": "How long is the warranty on tents?", "expected": "5 years", "relevant": ["warranty"], "tags": ["warranty"]}
+{"id": "war-3", "input": "Can I transfer my warranty to someone I sell the product to?", "expected": "not transferable", "relevant": ["warranty"], "tags": ["warranty"]}
+{"id": "war-4", "input": "What email do I use to make a warranty claim?", "expected": "warranty@northwind.example", "relevant": ["warranty"], "tags": ["warranty"]}
+{"id": "loy-1", "input": "How many points do I earn per dollar in the Trail Club?", "expected": "1 point", "relevant": ["loyalty"], "tags": ["loyalty"]}
+{"id": "loy-2", "input": "How many points make a $5 reward?", "expected": "100 points", "relevant": ["loyalty"], "tags": ["loyalty"]}
+{"id": "loy-3", "input": "When do Trail Club points expire?", "expected": "18 months", "relevant": ["loyalty"], "tags": ["loyalty"]}
+{"id": "loy-4", "input": "What do Gold members get?", "expected": "free express shipping", "relevant": ["loyalty"], "tags": ["loyalty"]}
+{"id": "sup-1", "input": "What are the support hours on Saturday?", "expected": "9 AM to 5 PM", "relevant": ["support"], "tags": ["support"]}
+{"id": "sup-2", "input": "What is the support phone number?", "expected": "1-800-555-0142", "relevant": ["support"], "tags": ["support"]}
+{"id": "sup-3", "input": "How fast are support emails answered?", "expected": "1 business day", "relevant": ["support"], "tags": ["support"]}
+{"id": "prv-1", "input": "How long do you keep order records?", "expected": "7 years", "relevant": ["privacy"], "tags": ["privacy"]}
+{"id": "prv-2", "input": "How do I ask you to delete my data?", "expected": "privacy@northwind.example", "relevant": ["privacy"], "tags": ["privacy"]}
+{"id": "prv-3", "input": "Do you store my card number on your servers?", "expected": "never stored", "relevant": ["privacy"], "tags": ["privacy"]}
+{"id": "gft-1", "input": "What amounts do gift cards come in?", "expected": "$25, $50 and $100", "relevant": ["giftcards"], "tags": ["giftcards"]}
+{"id": "gft-2", "input": "Do gift cards expire?", "expected": "never expire", "relevant": ["giftcards"], "tags": ["giftcards"]}
+{"id": "str-1", "input": "Where are your retail stores?", "expected": "Portland, Denver and Burlington", "relevant": ["stores"], "tags": ["stores"]}
+{"id": "str-2", "input": "What time do stores open on Sunday?", "expected": "11 AM", "relevant": ["stores"], "tags": ["stores"]}
+{"id": "str-3", "input": "How fast is in-store pickup for online orders?", "expected": "2 hours", "relevant": ["stores"], "tags": ["stores"]}
+{"id": "mul-1", "input": "If I am a Gold member, how much will express shipping cost me, and how long will it take?", "expected": "free, 2 business days", "relevant": ["loyalty", "shipping"], "tags": ["multi-doc"]}
+{"id": "mul-2", "input": "Can I bring back a gift-card purchase to a store for a refund?", "expected": "cannot be returned", "relevant": ["giftcards", "stores"], "tags": ["multi-doc"]}
+{"id": "none-1", "input": "Do you offer a student discount?", "should_abstain": true, "tags": ["unanswerable"]}
+{"id": "none-2", "input": "Which airline do you use for overnight shipping?", "should_abstain": true, "tags": ["unanswerable"]}
+{"id": "none-3", "input": "Is there a Northwind store in Seattle?", "should_abstain": true, "tags": ["unanswerable"]}
+{"id": "none-4", "input": "What is the CEO's name?", "should_abstain": true, "tags": ["unanswerable"]}

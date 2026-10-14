@@ -1,0 +1,21 @@
+# PaperGraph (knowledge-graph chat). Needs: an open chat first, then messages in it.
+name = "papergraph"
+testset = "testset.jsonl"
+
+[target]
+type = "http"
+base_url = "http://127.0.0.1:8203"
+url = "/chat/{{chat}}/message"
+body = { question = "{{input}}" }
+answer_path = "answer"
+retries = 1
+setup = [ { method = "POST", url = "/chat", save_as = "chat", path = "id" } ]
+
+[run]
+concurrency = 1
+
+[[scorers]]
+name = "contains"
+[[scorers]]
+name = "latency"
+max_ms = 15000

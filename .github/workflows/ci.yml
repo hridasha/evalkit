@@ -1,0 +1,41 @@
+name: ci
+
+on: [push, pull_request]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -e ".[dev]"
+      - run: ruff check .
+      - run: pytest -q
+
+  # The quality gate: start the demo app, evaluate it, and fail the build if quality drops.
+  # Replace the demo app with your own app (and keep the previous run's database as an artifact for regression checks).
+  eval-gate:
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -e .
+      - name: Start the app under test
+        run: |
+          python -m uvicorn examples.demo_rag.app:app --port 8100 --log-level warning &
+          for i in $(seq 1 30); do curl -sf localhost:8100/health && break; sleep 1; done
+      - name: Evaluate (exit code 1 = quality gate failed)
+        working-directory: examples/demo_rag
+        env:
+          EVALKIT_DB: ${{ runner.temp }}/evalkit.db
+        run: evalkit run --html report.html --json summary.json --no-baseline
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-report
+          path: |
+            examples/demo_rag/report.html
+            examples/demo_rag/summary.json

@@ -1,0 +1,18 @@
+# RAG Chatbot: streams its reply as server-sent events ({"delta": "..."}), no adapter needed.
+name = "rag-chatbot"
+testset = "testset.jsonl"
+
+[target]
+type = "http"
+url = "http://127.0.0.1:8201/chat"
+body = { message = "{{input}}" }
+retries = 2
+
+[run]
+concurrency = 1
+
+[[scorers]]
+name = "contains"
+[[scorers]]
+name = "latency"
+max_ms = 15000

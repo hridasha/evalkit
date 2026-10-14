@@ -1,0 +1,6 @@
+{"id": "bert-what", "input": "What does BERT stand for?", "expected": "Bidirectional Encoder Representations", "tags": ["bert"]}
+{"id": "bert-pretrain", "input": "What pre-training tasks does BERT use?", "expected": "masked", "tags": ["bert"]}
+{"id": "attn-arch", "input": "What architecture does the Attention Is All You Need paper propose?", "expected": "Transformer", "tags": ["attention"]}
+{"id": "gpt3-learn", "input": "What kind of learning does GPT-3 demonstrate without fine-tuning?", "expected": "few-shot", "tags": ["gpt3"]}
+{"id": "llama-open", "input": "What is LLaMA?", "expected": "language model", "tags": ["llama"]}
+{"id": "unknown", "input": "Who won the 2018 football world cup?", "expected": "I don't know", "tags": ["out-of-scope"]}

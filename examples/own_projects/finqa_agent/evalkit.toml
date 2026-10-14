@@ -1,0 +1,25 @@
+# FinQA Agent: its /api/ask only does retrieval (returns the best filing excerpts), so we grade the retrieval.
+name = "finqa-retrieval"
+testset = "testset.jsonl"
+
+[target]
+type = "http"
+url = "http://127.0.0.1:8205/api/ask"
+body = { question = "{{input}}", k = 5 }
+answer_path = "results[0].preview"
+contexts_path = "results"
+context_id_path = "excerpt_id"
+context_text_path = "preview"
+retries = 1
+
+[run]
+concurrency = 2
+
+[[scorers]]
+name = "hit_rate"
+k = 5
+[[scorers]]
+name = "mrr"
+[[scorers]]
+name = "recall"
+k = 5

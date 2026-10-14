@@ -1,0 +1,54 @@
+name = "demo-rag"
+version = "baseline"
+testset = "testset.jsonl"
+
+[target]
+type = "http"
+url = "http://localhost:8100/ask"
+body = { question = "{{input}}" }
+answer_path = "answer"
+contexts_path = "contexts"
+tokens_in_path = "usage.input_tokens"
+tokens_out_path = "usage.output_tokens"
+input_price_per_m = 0.30    # pretend prices (USD per million tokens), so cost shows up in reports
+output_price_per_m = 2.50
+
+[run]
+concurrency = 4
+
+# Scorers: each one is a plug-in. Remove or add to taste (run `evalkit scorers` to see them all).
+[[scorers]]
+name = "contains"
+
+[[scorers]]
+name = "hit_rate"
+k = 4
+
+[[scorers]]
+name = "mrr"
+
+[[scorers]]
+name = "abstain"
+
+[[scorers]]
+name = "faithfulness"
+mode = "lexical"     # works offline; use mode = "llm" with an [llm] section for a stronger check
+
+[[scorers]]
+name = "latency"
+max_ms = 2000
+
+# Uncomment to also use a Gemini judge (needs GEMINI_API_KEY in your environment):
+# [llm]
+# type = "gemini"
+# [[scorers]]
+# name = "judge"
+# criteria = ["correctness", "completeness"]
+
+[gate]
+min_pass_rate = 0.70
+max_errors = 0
+max_p95_ms = 2000
+max_regression = 0.05
+[gate.scorers]
+hit_rate = 0.8

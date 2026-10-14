@@ -1,0 +1,47 @@
+name: evalkit
+
+services:
+  # one-off job: puts the demo test set into the database so the dashboard has something to run
+  seed:
+    build: .
+    command: ["evalkit", "import-testset", "examples/demo_rag/testset.jsonl", "--name", "demo-support-bot"]
+    volumes:
+      - evalkit-data:/data
+
+  evalkit:
+    build: .
+    ports:
+      - "8800:8800"
+    volumes:
+      - evalkit-data:/data
+    environment:
+      EVALKIT_DEMO_URL: http://demo_rag:8100/ask   # pre-filled in the New run page (the tuned version is http://demo_rag_tuned:8100/ask)
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}   # optional: enables the LLM judge and test-set generator
+    extra_hosts:
+      - "host.docker.internal:host-gateway"  # lets EvalKit test an app running on your own computer
+    depends_on:
+      seed:
+        condition: service_completed_successfully
+
+  # the app to practise on: a document Q&A bot (version A, the baseline)
+  demo_rag:
+    build: .
+    command: ["uvicorn", "examples.demo_rag.app:app", "--host", "0.0.0.0", "--port", "8100"]
+    ports:
+      - "8100:8100"
+    environment:
+      RAG_VERSION: baseline
+
+  # the same bot tuned (version B): answers more questions, uses two sentences
+  demo_rag_tuned:
+    build: .
+    command: ["uvicorn", "examples.demo_rag.app:app", "--host", "0.0.0.0", "--port", "8100"]
+    ports:
+      - "8101:8100"
+    environment:
+      RAG_VERSION: tuned
+      RAG_MIN_OVERLAP: "0.25"
+      RAG_SENTENCES: "2"
+
+volumes:
+  evalkit-data:

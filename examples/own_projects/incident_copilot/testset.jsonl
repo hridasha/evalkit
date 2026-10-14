@@ -1,0 +1,4 @@
+{"id": "top-errors", "input": "What errors happened most?", "expected": "kernel", "tags": ["logs"]}
+{"id": "cache", "input": "Were there any cache parity errors?", "expected": "parity", "tags": ["logs"]}
+{"id": "component", "input": "Which component produced the critical faults?", "expected": "KERNEL", "tags": ["logs"]}
+{"id": "severity", "input": "How severe were the instruction faults?", "expected": "critical", "tags": ["logs"]}

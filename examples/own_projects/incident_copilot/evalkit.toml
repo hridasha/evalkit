@@ -1,0 +1,19 @@
+# Incident Copilot (LangGraph agent). Every question gets its own conversation id via {{uuid}}.
+name = "incident-copilot"
+testset = "testset.jsonl"
+
+[target]
+type = "http"
+url = "http://127.0.0.1:8202/api/chat"
+body = { thread_id = "{{uuid}}", question = "{{input}}" }
+answer_path = "auto"        # finds `answer`, or `summary` when the agent pauses to ask a human
+retries = 1
+
+[run]
+concurrency = 1
+
+[[scorers]]
+name = "contains"
+[[scorers]]
+name = "latency"
+max_ms = 15000

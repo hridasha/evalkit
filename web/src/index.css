@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  @apply bg-bg text-slate-200 antialiased;
+  font-family: Inter, system-ui, "Segoe UI", sans-serif;
+  background-image:
+    radial-gradient(900px 420px at 85% -10%, rgba(124, 140, 255, 0.14), transparent 60%),
+    radial-gradient(700px 380px at -5% 10%, rgba(62, 207, 142, 0.07), transparent 60%);
+  background-attachment: fixed;
+}
+
+::selection { background: rgba(124, 140, 255, 0.35); }
+:focus-visible { outline: 2px solid #7c8cff; outline-offset: 2px; border-radius: 6px; }
+
+@layer components {
+  .card { @apply rounded-2xl border border-line/80 bg-panel/80 shadow-[0_1px_0_0_rgba(255,255,255,0.03)_inset] backdrop-blur; }
+  .card-hover { @apply transition duration-150 hover:-translate-y-0.5 hover:border-accent/60 hover:shadow-lg hover:shadow-accent/5; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl border border-line bg-panel px-3.5 py-2 text-sm font-medium text-slate-200 transition hover:border-accent/70 hover:bg-white/5 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-40; }
+  .btn-primary { @apply border-transparent bg-gradient-to-b from-[#8e9cff] to-[#6b7bf5] text-[#0b0d12] shadow-md shadow-accent/20 hover:brightness-110 hover:bg-transparent; }
+  .btn-danger { @apply hover:border-bad/70 hover:text-bad; }
+  .btn-ghost { @apply border-transparent bg-transparent hover:bg-white/5; }
+  .input { @apply w-full rounded-xl border border-line bg-bg/70 px-3 py-2 text-sm outline-none transition placeholder:text-slate-600 focus:border-accent focus:ring-2 focus:ring-accent/20; }
+  .label { @apply mb-1.5 block text-[11px] font-semibold uppercase tracking-wider text-muted; }
+  .badge { @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold; }
+  .h1 { @apply text-2xl font-semibold tracking-tight text-white sm:text-[28px]; }
+  .h2 { @apply text-base font-semibold text-white; }
+  th { @apply px-4 py-2.5 text-left text-[11px] font-semibold uppercase tracking-wider text-muted; }
+  td { @apply px-4 py-3 align-middle; }
+  .skeleton { @apply animate-pulse rounded-xl bg-line/50; }
+}
+
+/* thin scrollbars */
+* { scrollbar-width: thin; scrollbar-color: #2a3350 transparent; }

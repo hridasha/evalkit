@@ -1,0 +1,12 @@
+{"id": "fq-1", "input": "what is the average payment volume per transaction for american express?", "relevant": ["V/2008/page_17.pdf"], "tags": ["finqa"]}
+{"id": "fq-2", "input": "what was the percentage cumulative total return for the five year period ended 31-dec-2017 of citi common stock?", "relevant": ["C/2017/page_328.pdf"], "tags": ["finqa"]}
+{"id": "fq-3", "input": "what percentage of the total oil and gas mmboe comes from canada?", "relevant": ["DVN/2007/page_58.pdf"], "tags": ["finqa"]}
+{"id": "fq-4", "input": "in 2010 what was the net change in net revenue in millions", "relevant": ["ETR/2011/page_341.pdf"], "tags": ["finqa"]}
+{"id": "fq-5", "input": "what are the deferred fuel cost revisions as a percentage of the increase in fuel cost recovery revenues?", "relevant": ["ETR/2004/page_213.pdf"], "tags": ["finqa"]}
+{"id": "fq-6", "input": "what was the change in millions of operating income from 2016 to 2017?", "relevant": ["PM/2017/page_38.pdf"], "tags": ["finqa"]}
+{"id": "fq-7", "input": "what was jpmorgan chase & co's common equity tier 1 ( cet1 ) ratio in 2008?", "relevant": ["JPM/2008/page_85.pdf"], "tags": ["finqa"]}
+{"id": "fq-8", "input": "at the end of 2014 , the notional value of derivatives designated as hedging instruments under gaap was what percent of the fair value?", "relevant": ["PNC/2013/page_207.pdf"], "tags": ["finqa"]}
+{"id": "fq-9", "input": "what was the increase in class a common stock issued and outstanding between years , in thousands?", "relevant": ["CME/2017/page_97.pdf"], "tags": ["finqa"]}
+{"id": "fq-10", "input": "in millions what was total residential mortgages balance for 2013 and 2012?", "relevant": ["PNC/2013/page_62.pdf"], "tags": ["finqa"]}
+{"id": "fq-11", "input": "what was the gross margin decline in fiscal 2004 from 2003?", "relevant": ["AAPL/2004/page_36.pdf"], "tags": ["finqa"]}
+{"id": "fq-12", "input": "what percentage of total purchase commitments are due after 2014?", "relevant": ["PKG/2009/page_65.pdf"], "tags": ["finqa"]}

@@ -1,0 +1,3 @@
+{"id": "capital", "input": "What is the capital of France?", "expected": "Paris", "tags": ["general"]}
+{"id": "math", "input": "What is 12 times 12?", "expected": "144", "tags": ["general"]}
+{"id": "color", "input": "What colour do you get by mixing blue and yellow?", "expected": "green", "tags": ["general"]}
